@@ -33,6 +33,8 @@
 
 :root {
   --color-navy: #011827;
+  --color-light-blue: #8ACFE5;
+  --color-steel-blue: #36769D;
 }
 
 body {
@@ -63,4 +65,39 @@ body {
   margin: 0;
   font-size: 24px;
   max-width: 110px;
+}
+
+.hero__image {
+  display: block;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.button {
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button--onsite {
+  width: 64%;
+  padding: 16px 0;
+  background: var(--color-light-blue);
+  color: var(--color-navy);
+  font-size: 20px;
+}
+
+.button--online {
+  color: var(--color-steel-blue);
+  font-size: 14px;
+  text-decoration: underline;
 }
