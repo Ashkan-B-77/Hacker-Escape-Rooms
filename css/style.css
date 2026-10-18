@@ -101,3 +101,33 @@ body {
   font-size: 14px;
   text-decoration: underline;
 }
+
+.quotes {
+  padding: 56px 16px 0;
+}
+
+.quote {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+}
+
+.quote__avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.quote__text {
+  margin: 0;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.quote__author {
+  margin-top: 4px;
+  font-size: 15px;
+}
