@@ -75,11 +75,14 @@ body {
   object-fit: cover;
 }
 
-.hero__actions {
+.actions {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 18px;
+}
+
+.hero__actions {
   margin-top: 30px;
 }
 
@@ -108,6 +111,14 @@ body {
   background: var(--color-red);
   color: #fff;
   font-size: 14px;
+}
+
+.button--story {
+  width: 64%;
+  padding: 16px 0;
+  border: 2px solid var(--color-light-blue);
+  color: var(--color-light-blue);
+  font-size: 20px;
 }
 
 .quotes {
@@ -169,6 +180,10 @@ body {
   scroll-snap-align: start;
 }
 
+.challenges__actions {
+  margin-top: 8px;
+}
+
 .room-card {
   display: flex;
   flex-direction: column;
@@ -228,4 +243,21 @@ body {
 .room-card .button--book {
   margin-top: auto;
   align-self: flex-end;
+}
+
+.story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 80px 24px;
+  background: var(--color-navy);
+  color: #fff;
+}
+
+.story__text {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.3;
+  text-align: center;
 }
