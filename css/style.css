@@ -294,3 +294,45 @@ body {
   font-size: 18px;
   line-height: 1.4;
 }
+
+.footer {
+  padding: 40px 16px 56px;
+  background: var(--color-navy);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.footer__title {
+  margin: 0 0 4px;
+  font-weight: 700;
+}
+
+.footer__text {
+  margin: 0;
+}
+
+.footer__group {
+  margin-top: 32px;
+}
+
+.footer__heading {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.footer__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__list--spaced {
+  margin-top: 16px;
+}
+
+.footer__link {
+  color: inherit;
+  text-decoration: none;
+}
