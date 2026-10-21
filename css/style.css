@@ -487,3 +487,16 @@ body {
     margin-top: 0;
   }
 }
+
+/*---------------------------------------- above 1700 pixels ----------------------------------------*/
+@media (min-width: 1700px) {
+  .hero__image {
+    max-height: 560px;
+  }
+
+  .quotes,
+  .challenges__list {
+    max-width: 1600px;
+    margin-inline: auto;
+  }
+}
