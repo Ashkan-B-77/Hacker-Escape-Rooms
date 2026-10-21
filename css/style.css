@@ -47,25 +47,26 @@ body {
 .header {
   background: var(--color-navy);
   color: #fff;
-  padding: 24px 20px;
+  padding: 26px 27px 36px;
 }
 
 .header__brand {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 13px;
   color: inherit;
   text-decoration: none;
 }
 
 .header__logo {
-  width: 82px;
+  width: 128px;
   height: auto;
 }
 
 .header__title {
   margin: 0;
   font-size: 24px;
+  line-height: 1;
   max-width: 110px;
 }
 
@@ -96,7 +97,7 @@ body {
 .hero__image {
   display: block;
   width: 100%;
-  height: 170px;
+  height: 274px;
   object-fit: cover;
 }
 
@@ -104,11 +105,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
+  gap: 30px;
 }
 
 .hero__actions {
-  margin-top: 30px;
+  margin-top: 37px;
 }
 
 .button {
@@ -119,16 +120,17 @@ body {
 
 .button--onsite {
   width: 64%;
-  padding: 16px 0;
+  padding: 18.5px 0;
   background: var(--color-light-blue);
   color: var(--color-navy);
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .button--online {
   color: var(--color-steel-blue);
-  font-size: 14px;
+  font-size: 16px;
   text-decoration: underline;
+  line-height: 1;
 }
 
 .button--book {
@@ -202,21 +204,22 @@ body {
   font-weight: 400;
   text-align: center;
   color: var(--color-navy);
+  line-height: 1;
 }
 
 .challenges__list {
   display: flex;
-  gap: 24px;
+  gap: 38px;
   margin: 0;
-  padding: 8px 40px 24px;
+  padding: 8px 52px 24px;
   list-style: none;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-padding-left: 40px;
+  scroll-padding-left: 52px;
 }
 
 .challenges__item {
-  flex: 0 0 76%;
+  flex: 0 0 96.5%;
   scroll-snap-align: start;
 }
 
@@ -237,7 +240,8 @@ body {
 .room-card__image {
   display: block;
   width: 100%;
-  height: 170px;
+  height: auto;
+  aspect-ratio: 363 / 219;
   object-fit: cover;
 }
 
