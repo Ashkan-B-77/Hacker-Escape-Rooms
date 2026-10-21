@@ -36,7 +36,7 @@
   --color-light-blue: #8ACFE5;
   --color-steel-blue: #36769D;
   --color-red: #E3170A;
-  --color-grey: #B6BDB5;
+  --color-grey: #B6BDB5; /* unused for now */
 }
 
 body {
@@ -176,7 +176,6 @@ body {
   height: 62px;
   border-radius: 50%;
   object-fit: cover;
-  flex-shrink: 0;
   grid-row: 1 / 3;
 }
 
@@ -223,7 +222,6 @@ body {
 
 .challenges__actions {
   margin-top: 8px;
-  position: relative;
 }
 
 .room-card {
@@ -444,7 +442,7 @@ body {
 
   .challenges__actions {
     margin-top: 40px;
-}
+  }
 
   .room-card__image {
     height: auto;
@@ -490,10 +488,6 @@ body {
 
 /*---------------------------------------- above 1700 pixels ----------------------------------------*/
 @media (min-width: 1700px) {
-  .hero__image {
-    max-height: 560px;
-  }
-
   .quotes,
   .challenges__list {
     max-width: 1600px;
