@@ -44,6 +44,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+/*--------------------- header ---------------------*/
 .header {
   background: var(--color-navy);
   color: #fff;
@@ -70,6 +71,7 @@ body {
   max-width: 110px;
 }
 
+/*--------------------- nav ---------------------*/
 .nav {
   display: none;
 }
@@ -94,6 +96,7 @@ body {
   color: var(--color-light-blue);
 }
 
+/*--------------------- hero/action buttons ---------------------*/
 .hero__image {
   display: block;
   width: 100%;
@@ -133,32 +136,9 @@ body {
   line-height: 1;
 }
 
-.button--book {
-  padding: 10px 28px;
-  background: var(--color-red);
-  color: #fff;
-  font-size: 14px;
-}
-
-.button--story {
-  width: 64%;
-  padding: 16px 0;
-  border: 2px solid var(--color-light-blue);
-  color: var(--color-light-blue);
-  font-size: 20px;
-}
-
-.button--primary {
-  display: block;
-  width: 64%;
-  padding: 16px 0;
-  background: var(--color-red);
-  color: #fff;
-  font-size: 20px;
-}
-
+/*--------------------- quotes ---------------------*/
 .quotes {
-  padding: 56px 16px 0;
+  padding: 56px 21px 0;
 }
 
 .quote {
@@ -193,6 +173,7 @@ body {
   grid-column: 2;
 }
 
+/*--------------------- challenges ---------------------*/
 .challenges {
   padding: 64px 0 40px;
 }
@@ -289,6 +270,14 @@ body {
   align-self: flex-end;
 }
 
+.button--book {
+  padding: 10px 28px;
+  background: var(--color-red);
+  color: #fff;
+  font-size: 14px;
+}
+
+/*--------------------- story ---------------------*/
 .story {
   display: flex;
   flex-direction: column;
@@ -306,6 +295,15 @@ body {
   text-align: center;
 }
 
+.button--story {
+  width: 64%;
+  padding: 16px 0;
+  border: 2px solid var(--color-light-blue);
+  color: var(--color-light-blue);
+  font-size: 20px;
+}
+
+/*--------------------- features ---------------------*/
 .feature__image {
   display: block;
   width: 100%;
@@ -330,6 +328,16 @@ body {
   line-height: 1.4;
 }
 
+.button--primary {
+  display: block;
+  width: 64%;
+  padding: 16px 0;
+  background: var(--color-red);
+  color: #fff;
+  font-size: 20px;
+}
+
+/*--------------------- footer ---------------------*/
 .footer {
   padding: 40px 16px 56px;
   background: var(--color-navy);
@@ -374,15 +382,18 @@ body {
 
 /*---------------------------------------- above 900 pixels ----------------------------------------*/
 @media (min-width: 900px) {
+  /*--------------------- header ---------------------*/
   .header__title {
     max-width: none;
   }
 
+  /*--------------------- nav ---------------------*/
   .nav {
     display: block;
     margin-top: 8px;
   }
 
+  /*--------------------- buttons ---------------------*/
   .button--onsite, .button--online, .button--story, .button--primary {
     width: auto;
     padding: 16px 40px;
@@ -404,16 +415,17 @@ body {
     display: inline-block;
   }
 
-  .actions {
-    flex-direction: row-reverse;
-    justify-content: center;
-    gap: 12px;
-  }
-
+  /*--------------------- hero/action buttons ---------------------*/
   .hero__image {
     height: auto;
     aspect-ratio: 11 / 4;
     max-height: 560px;
+  }
+
+  .actions {
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 12px;
   }
 
   .hero__actions {
@@ -421,6 +433,7 @@ body {
     margin-top: -26px;
   }
 
+  /*--------------------- quotes ---------------------*/
   .quotes {
     display: flex;
     gap: 40px;
@@ -435,6 +448,7 @@ body {
     display: grid;
   }
 
+  /*--------------------- challenges ---------------------*/
   .challenges__list {
     gap: 3%;
     padding: 8px 4% 10px;
@@ -453,10 +467,12 @@ body {
     aspect-ratio: 5 / 3;
   }
 
+  /*--------------------- story ---------------------*/
   .story__text {
     max-width: 560px;
   }
 
+  /*--------------------- features ---------------------*/
   .feature {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -475,6 +491,7 @@ body {
     padding: 24px 17%;
   }
 
+  /*--------------------- footer ---------------------*/
   .footer {
     display: grid;
     grid-template-columns: 1fr 140px 140px;
