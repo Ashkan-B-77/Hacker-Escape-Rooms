@@ -171,14 +171,14 @@ body {
 
 /*--------------------- quotes ---------------------*/
 .quotes {
-  padding: 67.03px 20px 0 21px;
+  padding: 67px 20px 0 21px;
 }
 
 .quote {
   display: grid;
-  grid-template-columns: 73.34px 1fr;
+  grid-template-columns: 73px 1fr;
   column-gap: 22.41px;
-  align-items: center;
+  align-items: start;
   margin: 0;
 }
 
@@ -187,7 +187,7 @@ body {
 }
 
 .quote__avatar {
-  width: 73.34px;
+  width: 73px;
   height: 72px;
   border-radius: 50%;
   object-fit: cover;
@@ -196,14 +196,16 @@ body {
 
 .quote__text {
   margin: 0;
-  font-size: 20px;
+  font-size: 24px;
   font-style: italic;
+  max-width: 340px;
 }
 
 .quote__author {
-  margin-top: 4px;
-  font-size: 15px;
+  margin-top: 3px;
+  font-size: 18px;
   grid-column: 2;
+  justify-self: start;
 }
 
 /*--------------------- challenges ---------------------*/
