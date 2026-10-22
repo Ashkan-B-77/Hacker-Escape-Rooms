@@ -90,12 +90,12 @@ body {
   display: block;
   width: 64%;
   padding: 16px 0;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .button--small {
   padding: 10px 28px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 /*--------------------- header ---------------------*/
@@ -210,17 +210,16 @@ body {
 
 /*--------------------- challenges ---------------------*/
 .challenges {
-  padding: 64px 0 40px;
+  padding: 105px 0 40px;
 }
 
 .challenges__heading {
-  margin: 0 0 40px;
-  padding: 0 16px;
-  font-size: 24px;
+  margin: 0 20px 36px;
+  font-size: 32px;
   font-weight: 400;
   text-align: center;
   color: var(--color-navy);
-  line-height: 1;
+
 }
 
 .challenges__list {
@@ -248,7 +247,7 @@ body {
   flex-direction: column;
   height: 100%;
   background: #fff;
-  border-radius: 4px;
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(1, 24, 39, 0.3);
   overflow: hidden;
 }
@@ -270,7 +269,7 @@ body {
 
 .room-card__title {
   margin: 0 0 4px;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 400;
   color: var(--color-navy);
 }
@@ -280,7 +279,7 @@ body {
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .room-card__rating {
@@ -296,7 +295,7 @@ body {
 
 .room-card__text {
   margin: 0 0 16px;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.4;
 }
 
@@ -313,7 +312,7 @@ body {
 
 .story__text {
   margin: 0;
-  font-size: 20px;
+  font-size: 28px;
   line-height: 1.3;
   text-align: center;
 }
@@ -332,14 +331,14 @@ body {
 
 .feature__title {
   margin: 0 0 16px;
-  font-size: 26px;
+  font-size: 32px;
   line-height: 1.2;
   color: var(--color-navy);
 }
 
 .feature__text {
   margin: 0 0 32px;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 1.4;
 }
 
@@ -348,7 +347,7 @@ body {
   padding: 40px 16px 56px;
   background: var(--color-navy);
   color: #fff;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.3;
 }
 
@@ -367,7 +366,7 @@ body {
 
 .footer__heading {
   margin: 0 0 4px;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
 }
 
