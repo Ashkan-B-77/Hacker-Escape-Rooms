@@ -44,6 +44,60 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+/*--------------------- buttons ---------------------*/
+.button {
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button--online {
+  color: var(--color-steel-blue);
+  font-size: 16px;
+  text-decoration: underline;
+  line-height: 1;
+}
+
+.room-card .button {
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+/* style */
+.button--primary {
+  background: var(--color-red);
+  color: #fff;
+}
+
+.button--secondary {
+  background: var(--color-light-blue);
+  color: var(--color-navy);
+}
+
+.button--outline {
+  border: 2px solid var(--color-light-blue);
+  color: var(--color-light-blue);
+}
+
+/* size */
+.button--large {
+  width: 64%;
+  padding: 18.5px 0;
+  font-size: 24px;
+}
+
+.button--medium {
+  display: block;
+  width: 64%;
+  padding: 16px 0;
+  font-size: 20px;
+}
+
+.button--small {
+  padding: 10px 28px;
+  font-size: 14px;
+}
+
 /*--------------------- header ---------------------*/
 .header {
   background: var(--color-navy);
@@ -96,7 +150,7 @@ body {
   color: var(--color-light-blue);
 }
 
-/*--------------------- hero/action buttons ---------------------*/
+/*--------------------- hero/actions ---------------------*/
 .hero__image {
   display: block;
   width: 100%;
@@ -115,36 +169,15 @@ body {
   margin-top: 37px;
 }
 
-.button {
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
-}
-
-.button--onsite {
-  width: 64%;
-  padding: 18.5px 0;
-  background: var(--color-light-blue);
-  color: var(--color-navy);
-  font-size: 24px;
-}
-
-.button--online {
-  color: var(--color-steel-blue);
-  font-size: 16px;
-  text-decoration: underline;
-  line-height: 1;
-}
-
 /*--------------------- quotes ---------------------*/
 .quotes {
-  padding: 56px 21px 0;
+  padding: 67.03px 20px 0 21px;
 }
 
 .quote {
   display: grid;
-  grid-template-columns: 62px 1fr;
-  column-gap: 16px;
+  grid-template-columns: 73.34px 1fr;
+  column-gap: 22.41px;
   align-items: center;
   margin: 0;
 }
@@ -154,8 +187,8 @@ body {
 }
 
 .quote__avatar {
-  width: 62px;
-  height: 62px;
+  width: 73.34px;
+  height: 72px;
   border-radius: 50%;
   object-fit: cover;
   grid-row: 1 / 3;
@@ -265,18 +298,6 @@ body {
   line-height: 1.4;
 }
 
-.room-card .button--book {
-  margin-top: auto;
-  align-self: flex-end;
-}
-
-.button--book {
-  padding: 10px 28px;
-  background: var(--color-red);
-  color: #fff;
-  font-size: 14px;
-}
-
 /*--------------------- story ---------------------*/
 .story {
   display: flex;
@@ -293,14 +314,6 @@ body {
   font-size: 20px;
   line-height: 1.3;
   text-align: center;
-}
-
-.button--story {
-  width: 64%;
-  padding: 16px 0;
-  border: 2px solid var(--color-light-blue);
-  color: var(--color-light-blue);
-  font-size: 20px;
 }
 
 /*--------------------- features ---------------------*/
@@ -326,15 +339,6 @@ body {
   margin: 0 0 32px;
   font-size: 18px;
   line-height: 1.4;
-}
-
-.button--primary {
-  display: block;
-  width: 64%;
-  padding: 16px 0;
-  background: var(--color-red);
-  color: #fff;
-  font-size: 20px;
 }
 
 /*--------------------- footer ---------------------*/
@@ -394,14 +398,18 @@ body {
   }
 
   /*--------------------- buttons ---------------------*/
-  .button--onsite, .button--online, .button--story, .button--primary {
+  .button--large, .button--online, .button--medium {
     width: auto;
     padding: 16px 40px;
     font-size: 20px;
   }
 
-  .button--onsite {
+  .button--large {
     min-width: 220px;
+  }
+
+  .button--medium {
+    display: inline-block;
   }
 
   .button--online {
@@ -411,11 +419,7 @@ body {
     min-width: 220px;
   }
 
-  .button--primary {
-    display: inline-block;
-  }
-
-  /*--------------------- hero/action buttons ---------------------*/
+  /*--------------------- hero/actions ---------------------*/
   .hero__image {
     height: auto;
     aspect-ratio: 11 / 4;
