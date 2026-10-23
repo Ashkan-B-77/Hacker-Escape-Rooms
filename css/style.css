@@ -252,7 +252,7 @@ body {
   height: 100%;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(1, 24, 39, 0.3);
+  box-shadow: 0 2px 8px rgba(1, 24, 39, 0.19);
   overflow: hidden;
 }
 
@@ -405,26 +405,11 @@ body {
 
 /*---------------------------------------- above 900 pixels ----------------------------------------*/
 @media (min-width: 900px) {
-  /*--------------------- header ---------------------*/
-  .header__title {
-    max-width: none;
-  }
-
-  /*--------------------- nav ---------------------*/
-  .nav {
-    display: block;
-    margin-top: 8px;
-  }
-
   /*--------------------- buttons ---------------------*/
   .button--large, .button--online, .button--medium {
-    width: auto;
-    padding: 17px 40px;
+    width: 308px;
+    padding: 19px 0;
     font-size: 24px;
-  }
-
-  .button--large {
-    min-width: 220px;
   }
 
   .button--medium {
@@ -435,36 +420,85 @@ body {
     background: var(--color-red);
     color: #fff;
     text-decoration: none;
-    min-width: 220px;
+    padding: 21px 0;
+  }
+  
+  /*--------------------- header ---------------------*/
+  .header {
+    padding-bottom: 22px; 
+  }
+
+  .header__title {
+    max-width: none;
+    font-size: 40px;
+    margin-top: 35px;
+  }
+
+  .header__brand {
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  /*--------------------- nav ---------------------*/
+  .nav {
+    display: block;
+    margin-top: 58px;
+  }
+
+  .nav__list {
+    gap: 114px;
+  }
+
+  .nav__link {
+    font-size: 24px;
   }
 
   /*--------------------- hero/actions ---------------------*/
   .hero__image {
     height: auto;
-    aspect-ratio: 11 / 4;
+    aspect-ratio: 1280 / 469;
     max-height: 560px;
   }
 
   .actions {
     flex-direction: row-reverse;
     justify-content: center;
-    gap: 12px;
+    gap: 17px;
   }
 
   .hero__actions {
     position: relative;
-    margin-top: -26px;
+    margin-top: -32px;
   }
 
   /*--------------------- quotes ---------------------*/
   .quotes {
     display: flex;
-    gap: 40px;
-    padding: 56px 8% 0;
+    gap: 21px;
+    padding: 107px 4% 0;
+    justify-content: center;    
   }
 
   .quote {
-    flex: 1;
+    flex: 0 1 520px;
+    column-gap: 16px;
+    grid-template-columns: 97px 1fr;
+  }
+
+  .quote__text {
+    max-width: 407px;
+    line-height: 32px;
+  }
+  
+  .quote__author {
+    max-width: 280px;
+    margin-top: 2px;
+  }
+
+  .quote__avatar {
+    width: 96px;
+    height: 96px;
+    margin-top: 6px;
   }
 
   .quote--second {
@@ -472,62 +506,108 @@ body {
   }
 
   /*--------------------- challenges ---------------------*/
+  .challenges {
+    padding-top: 108px;
+    padding-bottom: 87px;
+  }
+
   .challenges__list {
-    gap: 3%;
+    gap: 42px;
     padding: 8px 4% 10px;
+    justify-content: center;
   }
 
   .challenges__item {
-    flex: 1;
+    flex: 0 1 363px;
   }
 
   .challenges__actions {
-    margin-top: 40px;
+    margin-top: 77px;
   }
 
-  .room-card__image {
-    height: auto;
-    aspect-ratio: 5 / 3;
+  .challenges__heading {
+    margin: 0 20px 79px;
+  }
+
+  .room-card__title {
+    line-height: 28px;
+    margin: 0 0 5px;
+  }
+  
+  .room-card__meta {
+    margin-bottom: 23px;
+    justify-content: space-between;
+    padding-left: 0;
+  }
+  
+  .room-card__text {
+    line-height: 21px;
+    margin: 0 0 24px;
+  }
+
+  .room-card__rating {
+    gap: 10px;
+  }
+  
+  .challenges__item:nth-child(-n+2) .room-card {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   /*--------------------- story ---------------------*/
-  .story__text {
-    max-width: 560px;
+  .story {
+    padding: 123px 20px 142px;
+    gap: 0;
   }
 
-  .story .button--medium {
-  width: auto;
-  padding: 17px 40px;
+  .story__text {
+    max-width: 580px;
+    padding-bottom: 38px;
   }
 
   /*--------------------- features ---------------------*/
   .feature {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
+    align-items: start;
   }
 
   .feature__image {
-    aspect-ratio: 7 / 5;
+    aspect-ratio: 32 / 23;
   }
 
   .feature--reverse picture {
     order: 1;
   }
+  
+  .feature__content,
+  .feature--reverse .feature__content {
+    padding: 60px 17% 0;
+  }
 
-  .feature__content {
-    padding: 24px 17%;
+  .feature__title,
+  .feature--reverse .feature__title {
+    margin: 0 0 25px;
+    line-height: 34px;
+  }
+
+  .feature--reverse {
+    padding-bottom: 183px;
+  }
+  
+  .feature__text {
+    margin: 0 0 25px;
   }
 
   /*--------------------- footer ---------------------*/
   .footer {
     display: grid;
-    grid-template-columns: 1fr 140px 140px;
-    padding: 56px 8% 72px;
+    grid-template-columns: minmax(416px, 648px) 218px 1fr;
+    padding: 146px 0 0 108px;
+    min-height: 467px;
   }
 
   .footer__about {
-    max-width: 300px;
+    max-width: 416px;
   }
 
   .footer__group {
@@ -535,7 +615,7 @@ body {
   }
 
   .footer__group + .footer__group {
-  margin-top: 0;
+    margin-top: 0;
   }
 }
 
@@ -545,5 +625,9 @@ body {
   .challenges__list {
     max-width: 1600px;
     margin-inline: auto;
+  }
+
+  .footer {
+    padding-left: calc((100% - 1280px) / 2 + 108px);
   }
 }
