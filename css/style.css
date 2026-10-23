@@ -621,12 +621,6 @@ body {
 
 /*---------------------------------------- above 1700 pixels ----------------------------------------*/
 @media (min-width: 1700px) {
-  .quotes,
-  .challenges__list {
-    max-width: 1600px;
-    margin-inline: auto;
-  }
-
   .footer {
     padding-left: calc((100% - 1280px) / 2 + 108px);
   }
