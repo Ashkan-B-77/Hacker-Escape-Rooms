@@ -619,6 +619,19 @@ body {
   }
 }
 
+/*---------------------------------------- above 1280 pixels ----------------------------------------*/
+@media (min-width: 1280px) {
+  .feature__image {
+    aspect-ratio: auto;
+    height: 460px;
+  }
+
+  .feature__content,
+  .feature--reverse .feature__content {
+    padding: 60px calc((100% - 422px) / 2) 0;
+  }
+}
+
 /*---------------------------------------- above 1700 pixels ----------------------------------------*/
 @media (min-width: 1700px) {
   .footer {
