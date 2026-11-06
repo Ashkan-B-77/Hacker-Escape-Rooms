@@ -44,6 +44,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.body--no-scroll {
+  overflow: hidden;
+}
+
 /*--------------------- buttons ---------------------*/
 .button {
   font-weight: 700;
@@ -144,6 +148,20 @@ body {
   cursor: pointer;
   margin-right: -6px;
   margin-top: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.header__menu-button[aria-expanded="true"] .header__menu-line:nth-child(2) {
+  opacity: 0;
+}
+
+.header__menu-button[aria-expanded="true"] .header__menu-line:nth-child(1) {
+  transform: translateY(13.5px) rotate(45deg);
+}
+
+.header__menu-button[aria-expanded="true"] .header__menu-line:nth-child(3) {
+  transform: translateY(-13.5px) rotate(-45deg);
 }
 
 .header__menu-line {
@@ -154,27 +172,43 @@ body {
 
 /*--------------------- nav ---------------------*/
 .nav {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  inset: 15px;
+  background: var(--color-navy);
+  box-shadow: 0 0 0 100vmax rgba(255, 255, 255, 0.35);
+}
+
+.nav--open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s, visibility 0.4s;
 }
 
 .nav__list {
   display: flex;
   justify-content: center;
-  gap: 64px;
+  gap: 50px;
   margin: 0;
   padding: 0;
   list-style: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  line-height: 1;
 }
 
 .nav__link {
   color: #fff;
-  font-size: 18px;
+  font-size: 36px;
   font-weight: 700;
   text-decoration: none;
 }
 
 .nav__link--contact {
-  color: var(--color-light-blue);
+  color: #fff;
 }
 
 /*--------------------- hero/actions ---------------------*/
@@ -471,14 +505,25 @@ body {
   .nav {
     display: block;
     margin-top: 58px;
+    position: static;
+    background: none;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
   }
 
   .nav__list {
     gap: 114px;
+    flex-direction: row;
+    height: auto;
   }
 
   .nav__link {
     font-size: 24px;
+  }
+
+  .nav__link--contact {
+    color: var(--color-light-blue);
   }
 
   /*--------------------- hero/actions ---------------------*/
