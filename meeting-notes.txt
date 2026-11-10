@@ -1,0 +1,26 @@
+Möte 1 2026-11-10 10:00
+Mötet öppnades. Viktor delade tidigare uppgiften och Viktor och Ashkan 
+förklarade kort vad som gjorts och vad som ska göras. Eli och Ashkan 
+föreslog att vi skulle dela upp uppgiften i de olika momenten. Gruppen 
+antog detta förslag. 
+
+Henry föreslog att han skulle ta moment 1: Ladda challenge data från APi. 
+Viktor och Ashkan föreslog att dela på moment 2: Filtrera challenges, 
+där viktor tar första delen med de 2 första punkterna och Ashkan den 
+andra delen med de 2 sista punkterna. 
+
+Eli och Natan ville dela på moment 3: Boka challenge, 
+där Eli tar den första delen med de 2 första punkterna och Natan tar 
+sista delen med tredje punkten. Planen antogs av gruppen. 
+
+Gruppen diskuterade tider för möte och kom gemensamt fram till att vi 
+ska ha ett möte i veckan varje tisdag klockan 10.00. Henry flikade in 
+att detta alltid går att ändras om gruppen kommer överäns om det. 
+
+Gruppen kom överäns om att vi sköter all kommunikation i mellan mötena 
+via slack. 
+
+Gruppen bestämde att vi skulle använda Ashkans repo som bas att arbeta 
+i då detta repo använder ren css som flera i gruppen är bekväma med.
+
+Mötet avslutades.
