@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Booking test — Hacker Escape Rooms</title>
+
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/booking.css">
+</head>
+<body>
+  <main class="booking-test">
+    <h1>Booking test</h1>
+
+    <p>
+      Test challenge: Intelligence in space.
+      Challenge ID: 4. Participants: 2–6.
+    </p>
+
+    <button
+      id="test-booking-button"
+      class="booking-submit"
+      type="button"
+    >
+      Book Intelligence in space
+    </button>
+  </main>
+
+  <script type="module">
+    import { openBooking } from "./js/booking.js";
+
+    // One verified challenge used for development testing.
+    const testChallenge = {
+      id: 4,
+      title: "Intelligence in space",
+      minParticipants: 2,
+      maxParticipants: 6,
+    };
+
+    const testButton = document.querySelector("#test-booking-button");
+
+    testButton.addEventListener("click", function () {
+      openBooking(testChallenge, testButton);
+    });
+  </script>
+</body>
+</html>

@@ -75,7 +75,8 @@ html.booking-open body {
   font-weight: 700;
 }
 
-.booking-field input {
+.booking-field input,
+.booking-field select {
   width: 100%;
   min-width: 0;
   min-height: 48px;
@@ -123,6 +124,77 @@ html.booking-open body {
   }
 
   .booking-submit {
+    width: 100%;
+  }
+}
+
+/* Loading messages, available times, and errors */
+.booking-status {
+  margin: 0 0 20px;
+  color: var(--color-navy);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.booking-status:empty {
+  display: none;
+}
+
+/* Layout for our separate booking test page */
+.booking-test {
+  max-width: 680px;
+  margin: 48px auto;
+  padding: 0 20px;
+}
+
+/* Keep inactive booking steps hidden. */
+.booking-dialog [hidden] {
+  display: none !important;
+}
+
+.booking-selected-date {
+  margin: 0 0 24px;
+  color: #46616f;
+  line-height: 1.5;
+}
+
+/* Time and participants sit beside each other on wider screens. */
+.booking-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Back and submit buttons */
+.booking-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.booking-back {
+  min-height: 48px;
+  padding: 12px 20px;
+  border: 1px solid #718792;
+  border-radius: 4px;
+  color: var(--color-navy);
+  background: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .booking-field-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .booking-actions {
+    flex-direction: column;
+  }
+
+  .booking-back {
     width: 100%;
   }
 }
