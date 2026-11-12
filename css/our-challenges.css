@@ -1,0 +1,78 @@
+/*----------------- Our challenges header ------------------*/
+
+.our-challenges-heading {
+    font-size: 32px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-navy);
+}
+
+/*--------------------- filter section ---------------------*/
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    min-height: 50vh;
+    text-align: center;
+}
+
+.filter-card {
+    border: 3px solid var(--color-grey);
+    width: min(100% - 20px, 900px);
+    min-height: 30vh;
+    padding: 0 20px 10px;
+}
+
+.filter-card__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.filter-card__title {
+    color: var(--color-navy);
+}
+
+.filter-card__close-button {
+    position: relative;
+    top: 5px;
+    right: 5px;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.filter-card__close-line {
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background-color: var(--color-navy);
+    border-radius: 3px;
+}
+
+.filter-card__close-line:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.filter-card__close-line:nth-child(2) {
+    transform: rotate(-45deg);
+}
+
+.filter-card__close-line:nth-child(3) {
+    display: none;
+}
+
+.filter-card__filters {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
