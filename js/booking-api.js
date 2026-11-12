@@ -24,3 +24,46 @@ export async function getAvailableTimes(challengeId, date) {
 
   return data.slots;
 }
+
+export async function createReservation(booking) {
+  const response = await fetch(`${API_BASE}/booking/reservations`, {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+
+    body: JSON.stringify(booking),
+
+    signal: AbortSignal.timeout(20000),
+  });
+
+  if (!response.ok) {
+    throw new Error(
+      `Reservation request returned HTTP ${response.status}.`
+    );
+  }
+
+  const data = await response.json();
+
+  const fields = [
+    "challenge",
+    "name",
+    "email",
+    "date",
+    "time",
+    "participants",
+  ];
+
+  if (
+    data?.status !== "ok" ||
+    !data.booking ||
+    fields.some(function (field) {
+      return data.booking[field] !== booking[field];
+    })
+  ) {
+    throw new Error("The server did not confirm the submitted booking.");
+  }
+
+  return data.booking;
+}

@@ -1,4 +1,7 @@
-import { getAvailableTimes } from "./booking-api.js";
+import {
+  getAvailableTimes,
+  createReservation,
+} from "./booking-api.js";
 
 // Create the booking window.
 const dialog = document.createElement("dialog");
@@ -104,6 +107,13 @@ dialog.innerHTML = `
         </div>
       </div>
 
+            <p
+        id="booking-submit-status"
+        class="booking-status"
+        role="status"
+        tabindex="-1"
+      ></p>
+
       <div class="booking-actions">
         <button
           id="booking-back"
@@ -116,7 +126,6 @@ dialog.innerHTML = `
         <button
           class="booking-submit"
           type="submit"
-          disabled
         >
           Submit booking
         </button>
@@ -138,7 +147,7 @@ const closeButton = dialog.querySelector(".booking-close");
 // Remember the current booking and request.
 let selectedChallenge;
 let openingButton;
-let busy = false;
+let busy = "";
 let requestNumber = 0;
 // Elements belonging to the second step.
 const stepLabel = dialog.querySelector(".booking-step");
@@ -154,6 +163,11 @@ const backButton = dialog.querySelector("#booking-back");
 // Remember the successful date search for the booking.
 let bookingDate = "";
 let availableSlots = [];
+
+const submitButton = detailsForm.querySelector(".booking-submit");
+const submitStatus = dialog.querySelector("#booking-submit-status");
+
+let reservationComplete = false;
 
 // Show either the date form or the details form.
 function showStep(step) {
@@ -188,7 +202,7 @@ function showDetails(slots, date) {
   }
 
   selectedDateText.textContent = `Your date: ${bookingDate}`;
-
+  submitStatus.textContent = "";
   showStep(2);
   nameInput.focus();
 }
@@ -212,17 +226,45 @@ function hasChallengeId() {
 }
 
 // Update the controls while a request is running.
-function setBusy(isBusy) {
-  busy = isBusy;
+function setBusy(mode) {
+  busy = mode;
 
-  dateInput.disabled = isBusy;
-  searchButton.disabled = isBusy || !hasChallengeId();
+  const loadingTimes = mode === "times";
+  const sendingReservation = mode === "reservation";
 
-  searchButton.textContent = isBusy
+  dateInput.disabled =
+    loadingTimes || sendingReservation || reservationComplete;
+
+  searchButton.disabled =
+    loadingTimes ||
+    sendingReservation ||
+    reservationComplete ||
+    !hasChallengeId();
+
+  searchButton.textContent = loadingTimes
     ? "Finding available times…"
     : "Search available times";
 
-  dateForm.setAttribute("aria-busy", String(isBusy));
+  const detailsLocked = sendingReservation || reservationComplete;
+
+  detailsForm.querySelectorAll("input, select, button").forEach(
+    function (control) {
+      control.disabled = detailsLocked;
+    }
+  );
+
+  closeButton.disabled = sendingReservation;
+
+  if (sendingReservation) {
+    submitButton.textContent = "Sending booking…";
+  } else if (reservationComplete) {
+    submitButton.textContent = "Booking confirmed";
+  } else {
+    submitButton.textContent = "Submit booking";
+  }
+
+  dateForm.setAttribute("aria-busy", String(loadingTimes));
+  detailsForm.setAttribute("aria-busy", String(sendingReservation));
 }
 
 // Other files can call this function with challenge data.
@@ -238,6 +280,10 @@ export function openBooking(challenge, triggerElement) {
 
   dateForm.reset();
 detailsForm.reset();
+
+reservationComplete = false;
+submitStatus.textContent = "";
+nameInput.setCustomValidity("");
 
 dateInput.min = today();
 
@@ -270,7 +316,7 @@ showStep(1);
     ? ""
     : "Booking is not available for this room yet.";
 
-  setBusy(false);
+  setBusy("");
 
   document.documentElement.classList.add("booking-open");
 
@@ -305,7 +351,7 @@ dialog.addEventListener("close", function () {
   // Ignore any response belonging to the closed booking.
   requestNumber += 1;
 
-  setBusy(false);
+  setBusy("");
   document.documentElement.classList.remove("booking-open");
 
   if (openingButton && openingButton.isConnected) {
@@ -336,7 +382,7 @@ dateForm.addEventListener("submit", async function (event) {
   bookingDate = "";
 availableSlots = [];
 
-setBusy(true);
+setBusy("times");
 dateStatus.textContent = "Looking for available times…";
 
   try {
@@ -363,7 +409,7 @@ dateStatus.textContent = "Looking for available times…";
     console.error("Available-times request failed:", error);
   } finally {
     if (thisRequest === requestNumber && dialog.open) {
-      setBusy(false);
+      setBusy("");
     }
   }
 });
@@ -378,7 +424,115 @@ backButton.addEventListener("click", function () {
   dateInput.focus();
 });
 
-// Prevent normal navigation until reservation submission is connected.
-detailsForm.addEventListener("submit", function (event) {
+// Validate and submit the reservation.
+detailsForm.addEventListener("submit", async function (event) {
   event.preventDefault();
+
+  if (busy || reservationComplete) return;
+
+  // Remove spaces from the beginning and end.
+  nameInput.value = nameInput.value.trim();
+  emailInput.value = emailInput.value.trim();
+
+  nameInput.setCustomValidity(
+    nameInput.value ? "" : "Please enter your name."
+  );
+
+  if (!detailsForm.reportValidity()) return;
+
+  // Check that the booking date is still valid.
+  if (!bookingDate || bookingDate < today()) {
+    showStep(1);
+
+    dateInput.min = today();
+    dateStatus.textContent = "Please choose today or a future date.";
+    dateInput.focus();
+
+    return;
+  }
+
+  const participantCount = Number(participantsInput.value);
+
+  // Check the chosen time and participant count.
+  if (
+    !hasChallengeId() ||
+    !availableSlots.includes(timeInput.value) ||
+    !Number.isInteger(participantCount) ||
+    participantCount < selectedChallenge.minParticipants ||
+    participantCount > selectedChallenge.maxParticipants
+  ) {
+    submitStatus.textContent =
+      "Please choose an available time and a valid participant count.";
+
+    submitStatus.focus();
+    return;
+  }
+
+  // Build the object expected by the API.
+  const payload = {
+    challenge: selectedChallenge.id,
+    name: nameInput.value,
+    email: emailInput.value,
+    date: bookingDate,
+    time: timeInput.value,
+    participants: participantCount,
+  };
+
+  const challengeSnapshot = { ...selectedChallenge };
+  const thisRequest = ++requestNumber;
+
+  setBusy("reservation");
+
+  submitStatus.textContent = "Sending your booking. Please wait…";
+  submitStatus.focus();
+
+  let confirmedBooking;
+
+  try {
+    confirmedBooking = await createReservation(payload);
+  } catch (error) {
+    if (thisRequest !== requestNumber || !dialog.open) return;
+
+    setBusy("");
+
+    submitStatus.textContent =
+      "We could not confirm the booking. Please try again.";
+
+    console.error("Reservation request failed:", error);
+
+    submitStatus.focus();
+    return;
+  }
+
+  if (thisRequest !== requestNumber || !dialog.open) return;
+
+  reservationComplete = true;
+  setBusy("");
+
+  submitStatus.textContent = "Booking confirmed.";
+  submitStatus.focus();
+
+  // Proposed connection point for Natan's confirmation screen.
+  dialog.dispatchEvent(
+    new CustomEvent("booking:confirmed", {
+      bubbles: true,
+
+      detail: {
+        booking: confirmedBooking,
+        challenge: challengeSnapshot,
+      },
+    })
+  );
+});
+
+// Clear a custom name error when the visitor edits their name.
+nameInput.addEventListener("input", function () {
+  nameInput.setCustomValidity("");
+});
+
+// Keep the window open while the reservation request is running.
+dialog.addEventListener("cancel", function (event) {
+  if (busy === "reservation") {
+    event.preventDefault();
+  }
 });

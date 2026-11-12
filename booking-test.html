@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Booking test — Hacker Escape Rooms</title>
-
+  <link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="./images/favicon-32.png"
+>
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/booking.css">
 </head>
@@ -43,6 +48,10 @@
     testButton.addEventListener("click", function () {
       openBooking(testChallenge, testButton);
     });
+
+    document.addEventListener("booking:confirmed", function (event) {
+  console.log("Confirmed booking:", event.detail.booking);
+});
   </script>
 </body>
 </html>
