@@ -20,6 +20,8 @@
 
 .filter__button {
     cursor: pointer;
+    background-color: var(--color-navy);
+    border-radius: 6px;
 }
 
 .filter-card {
