@@ -83,3 +83,16 @@
     align-content: center;
     flex-wrap: wrap;
 }
+
+/*--------------------- all challenges ---------------------*/
+
+.challenges__list--all {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
+    scroll-snap-type: none;
+}
+
+.challenges__list--all .challenges__item {
+    flex: 0 1 363px;
+}
