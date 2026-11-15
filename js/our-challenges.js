@@ -13,4 +13,4 @@ filterButton.addEventListener('click', () => {
 closeButton.addEventListener('click', () => {
     filterSection.appendChild(filterButton);
     filterCard.remove();
-})
+});
