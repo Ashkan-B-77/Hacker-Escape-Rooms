@@ -96,3 +96,13 @@
 .challenges__list--all .challenges__item {
     flex: 0 1 363px;
 }
+
+.all-challenges {
+    padding-bottom: 56px;
+}
+
+@media (min-width: 900px) {
+    .all-challenges {
+        padding-bottom: 87px;
+    }
+}
