@@ -1,3 +1,5 @@
+import { openBooking } from './mini_bookings.js';
+
 // Creates a card for a challenge, using the same HTML structure and classes
 // as the cards in index.html, so the existing CSS is applied.
 function createCard(challenge) {
@@ -58,11 +60,12 @@ function createCard(challenge) {
     text.className = 'room-card__text';
     text.textContent = challenge.description;
 
-    // The button. data-challenge-id lets the booking know which room was clicked.
-    const button = document.createElement('a');
+    const button = document.createElement('button');
+    button.type = 'button';
     button.className = 'button button--primary button--small';
-    button.href = '#';
     button.dataset.challengeId = challenge.id;
+    button.setAttribute('aria-haspopup', 'dialog');
+    button.addEventListener('click', () => openBooking(challenge, button));
     if (challenge.type === 'online') {
         button.textContent = 'Take challenge online';
     } else {
