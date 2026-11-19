@@ -1,4 +1,4 @@
-import { openBooking } from './mini_bookings.js';
+import { openBooking } from './booking.js';
 
 // Creates a card for a challenge, using the same HTML structure and classes
 // as the cards in index.html, so the existing CSS is applied.
