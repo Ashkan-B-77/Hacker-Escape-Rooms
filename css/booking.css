@@ -1,6 +1,6 @@
 /* Stop the background page from scrolling while booking is open. */
-html.booking-open,
-html.booking-open body {
+html.booking-scroll-lock,
+html.booking-scroll-lock body {
   overflow: hidden;
 }
 
@@ -31,7 +31,7 @@ html.booking-open body {
 }
 
 /* Close button */
-.booking-close {
+.booking-dialog__close {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -48,7 +48,7 @@ html.booking-open body {
 }
 
 /* Headings */
-.booking-step {
+.booking-dialog__step {
   margin: 0 48px 12px 0;
   color: #46616f;
   font-size: 14px;
@@ -56,7 +56,7 @@ html.booking-open body {
   text-transform: uppercase;
 }
 
-.booking-title {
+.booking-dialog__title {
   margin: 0 40px 28px 0;
   font-size: 26px;
   line-height: 1.3;
@@ -64,19 +64,19 @@ html.booking-open body {
 }
 
 /* Date field */
-.booking-field {
+.booking-dialog__field {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-bottom: 24px;
 }
 
-.booking-field label {
+.booking-dialog__field label {
   font-weight: 700;
 }
 
-.booking-field input,
-.booking-field select {
+.booking-dialog__field input,
+.booking-dialog__field select {
   width: 100%;
   min-width: 0;
   min-height: 48px;
@@ -90,7 +90,7 @@ html.booking-open body {
 }
 
 /* Search button */
-.booking-submit {
+.booking-button {
   min-height: 48px;
   padding: 12px 20px;
   border: 0;
@@ -102,7 +102,7 @@ html.booking-open body {
   cursor: pointer;
 }
 
-.booking-submit:disabled {
+.booking-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
@@ -119,24 +119,24 @@ html.booking-open body {
     padding: 28px 20px;
   }
 
-  .booking-title {
+  .booking-dialog__title {
     font-size: 23px;
   }
 
-  .booking-submit {
+  .booking-button {
     width: 100%;
   }
 }
 
 /* Loading messages, available times, and errors */
-.booking-status {
+.booking-dialog__status {
   margin: 0 0 20px;
   color: var(--color-navy);
   line-height: 1.5;
   overflow-wrap: anywhere;
 }
 
-.booking-status:empty {
+.booking-dialog__status:empty {
   display: none;
 }
 
@@ -152,27 +152,27 @@ html.booking-open body {
   display: none !important;
 }
 
-.booking-selected-date {
+.booking-dialog__selected-date {
   margin: 0 0 24px;
   color: #46616f;
   line-height: 1.5;
 }
 
 /* Time and participants sit beside each other on wider screens. */
-.booking-field-row {
+.booking-dialog__field-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
 /* Back and submit buttons */
-.booking-actions {
+.booking-dialog__actions {
   display: flex;
   justify-content: space-between;
   gap: 12px;
 }
 
-.booking-back {
+.booking-dialog__back {
   min-height: 48px;
   padding: 12px 20px;
   border: 1px solid #718792;
@@ -185,16 +185,16 @@ html.booking-open body {
 }
 
 @media (max-width: 480px) {
-  .booking-field-row {
+  .booking-dialog__field-row {
     grid-template-columns: 1fr;
     gap: 0;
   }
 
-  .booking-actions {
+  .booking-dialog__actions {
     flex-direction: column;
   }
 
-  .booking-back {
+  .booking-dialog__back {
     width: 100%;
   }
 }

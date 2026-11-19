@@ -25,7 +25,7 @@
 
     <button
       id="test-booking-button"
-      class="booking-submit"
+      class="booking-button"
       type="button"
     >
       Book Intelligence in space
@@ -37,21 +37,21 @@
 
     // One verified challenge used for development testing.
     const testChallenge = {
-      id: 4,
-      title: "Intelligence in space",
-      minParticipants: 2,
-      maxParticipants: 6,
+        id: 4,
+        title: "Intelligence in space",
+        minParticipants: 2,
+        maxParticipants: 6,
     };
 
     const testButton = document.querySelector("#test-booking-button");
 
     testButton.addEventListener("click", function () {
-      openBooking(testChallenge, testButton);
+        openBooking(testChallenge, testButton);
     });
 
     document.addEventListener("booking:confirmed", function (event) {
-  console.log("Confirmed booking:", event.detail.booking);
-});
+        console.log("Confirmed booking:", event.detail.booking);
+    });
   </script>
 </body>
 </html>
