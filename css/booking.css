@@ -140,11 +140,17 @@ html.booking-scroll-lock body {
   display: none;
 }
 
-/* Layout for our separate booking test page */
-.booking-test {
-  max-width: 680px;
-  margin: 48px auto;
-  padding: 0 20px;
+.booking-dialog fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.room-card button[data-challenge-id] {
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
 }
 
 /* Keep inactive booking steps hidden. */
