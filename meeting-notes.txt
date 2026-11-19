@@ -1,4 +1,7 @@
 Möte 1 2026-11-10 10:00
+Medverkande: Henry Nguyen, Eli Fadi, Viktor Ekström, Ashkan Baharlooe,
+Natan Zemichael Yacob
+
 Mötet öppnades. Viktor delade tidigare uppgiften och Viktor och Ashkan 
 förklarade kort vad som gjorts och vad som ska göras. Eli och Ashkan 
 föreslog att vi skulle dela upp uppgiften i de olika momenten. Gruppen 
@@ -22,5 +25,29 @@ via slack.
 
 Gruppen bestämde att vi skulle använda Ashkans repo som bas att arbeta 
 i då detta repo använder ren css som flera i gruppen är bekväma med.
+
+Mötet avslutades.
+
+
+Möte 2 2026-11-16 16:00
+Medverkande: Henry Nguyen, Eli Fadi, Viktor Ekström, Ashkan Baharlooe,
+Natan Zemichael Yacob
+Mötet tidigarelades pga en krock med schemalagd handledning.
+
+Mötet öppnades. Viktor bestämdes att skriva mötesanteckningar. Ashkan
+frågade om Eli kunde lägga upp sin pull request (PR) igen för review av 
+Ashkan och det accepterades av Eli.
+
+Henry pratade om sin PR och review ändringar han fick av Viktor tidigare och 
+de båda diskuterade hurvida rätt bild från apiet användes i Henrys kort eller
+inte. Båda kom fram till att rätt bild nu hämtas från APIet och att Henry ska
+arbeta vidare med nästa steg av ändringar.
+
+Eli pratade om sin PR och kom fram till att ändra sina klasser till BEM 
+klasser och kod med rätt identering för att vara konsekvent med övriga 
+projektet. Gruppen bestämde att när Ashkan gjort en review på Elis Pr och
+mergat in i Main branchen så kan Natan börja arbeta med sin del av moment 3
+som är beroende av Elis arbete. Övriga grupp medlemmar arbetar vidare på
+sina delar av projektet.
 
 Mötet avslutades.
