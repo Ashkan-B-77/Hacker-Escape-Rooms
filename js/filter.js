@@ -1,5 +1,5 @@
 // ---------------------------------------- functions ----------------------------------------
-function getAllLabels(challenges) {
+export function getAllLabels(challenges) {
     const labels = new Set();
     challenges.forEach(function (challenge) {
         challenge.labels.forEach(function (label) {
@@ -9,7 +9,7 @@ function getAllLabels(challenges) {
     return [...labels].sort();
 }
 
-function filterChallenges(challenges, filters) {
+export function filterChallenges(challenges, filters) {
     const text = filters.text.trim().toLowerCase();
     return challenges.filter(function (challenge) {
         const hasAllLabels = filters.labels.every(function (label) {
@@ -22,7 +22,3 @@ function filterChallenges(challenges, filters) {
     });
 }
 
-// ---------------------------------------- JEST ----------------------------------------
-if (typeof module !== "undefined") {
-    module.exports = {filterChallenges, getAllLabels};
-}

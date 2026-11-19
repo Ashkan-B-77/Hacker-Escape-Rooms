@@ -1,4 +1,4 @@
-const { filterChallenges, getAllLabels } = require("../js/filter.js");
+import {filterChallenges, getAllLabels} from "../js/filter.js";
 
 const challenges = [
     { id: 1, title: "Project: X of Doom", description: "Try your hardest", labels: ["linux", "web"] },
