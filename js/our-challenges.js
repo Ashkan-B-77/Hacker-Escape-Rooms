@@ -63,7 +63,8 @@ async function filterChallenges() {
     const maxRating = selectedMaxRating ? selectedMaxRating.value : 5;
 
     data.challenges.forEach((challenge) => {
-        const rating = Math.round(challenge.rating) >= minRating && challenge.rating <= maxRating;
+        const apiRating = Math.round(challenge.rating);
+        const rating = apiRating >= minRating && apiRating <= maxRating;
 
         if (onlineCheckbox.checked && challenge.type === "online" && rating) {
             dataArr.push(challenge);
