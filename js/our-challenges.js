@@ -25,8 +25,8 @@ closeButton.addEventListener("click", () => {
     filterSection.appendChild(filterButton);
 });
 
-onlineCheckbox.addEventListener('click', updateChallengeList);
-onsiteCheckbox.addEventListener('click', updateChallengeList);
+onlineCheckbox.addEventListener('change', updateChallengeList);
+onsiteCheckbox.addEventListener('change', updateChallengeList);
 
 minRadioRatings.forEach((radio) => {
     radio.addEventListener('change', () => {
@@ -39,8 +39,8 @@ maxRadioRatings.forEach((radio) => {
     radio.addEventListener('change', () => {
         updateStars(".filter-card__right-stars", radio.value);
         updateChallengeList();
-    })
-})
+    });
+});
 
 // ----------------------------------- functions -------------------------------
 
@@ -48,7 +48,7 @@ function updateStars(groupElements, selectedRating) {
     const stars = document.querySelectorAll(`${groupElements} .filter-card__star`);
 
     stars.forEach((star, index) => {
-        star.src = index < selectedRating ? "../images/star_full.svg" : "../images/star_empty.svg";
+        star.src = index < selectedRating ? "./images/star_full.svg" : "./images/star_empty.svg";
     });
 }
 
@@ -72,7 +72,7 @@ async function filterChallenges() {
             dataArr.push(challenge);
         }
         if (!onlineCheckbox.checked && !onsiteCheckbox.checked && rating) {
-            dataArr.push(challenge)
+            dataArr.push(challenge);
         }
     });
     

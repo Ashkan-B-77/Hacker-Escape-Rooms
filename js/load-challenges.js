@@ -1,6 +1,6 @@
 import {getDataFromApi, createCard} from './challenge-data.js';
 
-// Fetches the challenges and shows them on the right page
+// Fetches the challenges and shows top 3 in the right order
 async function loadChallenges() {
     const data = await getDataFromApi();
 
