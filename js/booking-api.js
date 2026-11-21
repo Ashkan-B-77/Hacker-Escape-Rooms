@@ -7,8 +7,9 @@ export async function getAvailableTimes(challengeId, date) {
     });
 
     const response = await fetch(
-        `${API_BASE}/booking/available-times?${query}`
-    );
+        `${API_BASE}/booking/available-times?${query}`,
+        { signal: AbortSignal.timeout(20000) }
+   );
 
     if (!response.ok) {
         throw new Error(
@@ -46,22 +47,7 @@ export async function createReservation(booking) {
 
     const data = await response.json();
 
-    const fields = [
-        "challenge",
-        "name",
-        "email",
-        "date",
-        "time",
-        "participants",
-    ];
-
-    if (
-        data?.status !== "ok" ||
-        !data.booking ||
-        fields.some(function (field) {
-            return data.booking[field] !== booking[field];
-        })
-    ) {
+    if (data?.status !== "ok" || !data.booking) {
         throw new Error("The server did not confirm the submitted booking.");
     }
 
