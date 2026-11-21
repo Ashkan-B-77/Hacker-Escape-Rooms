@@ -1,4 +1,4 @@
-const API_BASE = "https://lernia-sjj-assignments.vercel.app/api";
+import { API_BASE } from './api-config.js';
 
 export async function getAvailableTimes(challengeId, date) {
     const query = new URLSearchParams({

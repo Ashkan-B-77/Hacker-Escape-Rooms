@@ -1,4 +1,5 @@
 import { openBooking } from './mini_bookings.js';
+import { API_BASE } from './api-config.js';
 // Creates a card for a challenge, using the same HTML structure and classes
 // as the cards in index.html, so the existing CSS is applied.
 
@@ -83,7 +84,7 @@ let challengeData;
 
 export async function getDataFromApi() {
     if (!challengeData) {
-        const response = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
+        const response = await fetch(`${API_BASE}/challenges`);
         challengeData = await response.json();
     }
     return challengeData;
