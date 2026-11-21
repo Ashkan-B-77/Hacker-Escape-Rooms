@@ -21,8 +21,7 @@
     <link rel='stylesheet' href='./css/main.css'>
     <link rel='stylesheet' href='./css/our-challenges.css'>
     <script defer src="./js/main.js"></script>
-    <script defer src="./js/our-challenges.js"></script>
-    <script defer src="./js/load-challenges.js"></script>
+    <script type="module" src="./js/our-challenges.js"></script>
 </head>
 <body>
     <header class="header">
@@ -61,8 +60,145 @@
                     </button>
                 </div>
                 <div class="filter-card__filters">
-                    <div></div>
-                    <div></div>
+                    <section class="filter-card__type">
+                        <h4 class="filter-card__small-heading">By type</h4>
+                        <form class="filter-card__type-form">
+                            <div class="filter-card__checkbox-container">
+                                <input 
+                                    type="checkbox"
+                                    id="online-checkbox"
+                                    class="filter-card__checkbox"
+                                    name="challenges"
+                                    value="online-challenges"
+                                />
+                                <label for="online-checkbox" class="filter-card__label">
+                                    Include online challenges
+                                </label>
+                            </div>
+                            <div class="filter-card__checkbox-container">
+                                <input 
+                                    type="checkbox"
+                                    id="onsite-checkbox"
+                                    class="filter-card__checkbox"
+                                    name="challenges"
+                                    value="onsite-challenges"
+                                />
+                                <label for="onsite-checkbox" class="filter-card__label">
+                                    Include on-site challenges
+                                </label>
+                            </div>
+                        </form>
+                    </section>
+                    <section class="filter-card__rating">
+                        <h4 class="filter-card__small-heading">By rating</h4>
+                        <div class="filter-card__type-rating">
+                            <div class="filter-card__left-stars">
+                                <label class="filter-card__star-label">
+                                    <input
+                                        class="filter-card__rating-radio"
+                                        type="radio"
+                                        name="min-rating"
+                                        value="1"
+                                        aria-label="minimum rating 1"
+                                    />
+                                    <img class="filter-card__star" src="./images/star_empty.svg" alt="star" />
+                                </label>
+                                <label class="filter-card__star-label">
+                                    <input
+                                        class="filter-card__rating-radio"
+                                        type="radio"
+                                        name="min-rating"
+                                        value="2"
+                                        aria-label="minimum rating 2"
+                                    />
+                                    <img class="filter-card__star" src="./images/star_empty.svg" alt="star" />
+                                </label>
+                                <label class="filter-card__star-label">
+                                    <input
+                                        class="filter-card__rating-radio"
+                                        type="radio"
+                                        name="min-rating"
+                                        value="3"
+                                        aria-label="minimum rating 3"
+                                    />
+                                    <img class="filter-card__star" src="./images/star_empty.svg" alt="star" />
+                                </label>
+                                <label class="filter-card__star-label">
+                                    <input
+                                        class="filter-card__rating-radio"
+                                        type="radio"
+                                        name="min-rating"
+                                        value="4"
+                                        aria-label="minimum rating 4"
+                                    />
+                                    <img class="filter-card__star" src="./images/star_empty.svg" alt="star" />
+                                </label>
+                                <label class="filter-card__star-label">
+                                    <input
+                                        class="filter-card__rating-radio"
+                                        type="radio"
+                                        name="min-rating"
+                                        value="5"
+                                        aria-label="minimum rating 5"
+                                    />
+                                    <img class="filter-card__star" src="./images/star_empty.svg" alt="star" />
+                                </label>
+                            </div>
+                            <span class="filter-card__star-divider">to</span>
+                            <div class="filter-card__right-stars">
+                                <label class="filter-card__star-label">
+                                    <input
+                                        class="filter-card__rating-radio"
+                                        type="radio"
+                                        name="max-rating"
+                                        value="1"
+                                        aria-label="maximum rating 1"
+                                    />
+                                    <img class="filter-card__star" src="./images/star_empty.svg" alt="star" />
+                                </label>
+                                <label class="filter-card__star-label">
+                                    <input
+                                        class="filter-card__rating-radio"
+                                        type="radio"
+                                        name="max-rating"
+                                        value="2"
+                                        aria-label="maximum rating 2"
+                                    />
+                                    <img class="filter-card__star" src="./images/star_empty.svg" alt="star" />
+                                </label>
+                                <label class="filter-card__star-label">
+                                    <input
+                                        class="filter-card__rating-radio"
+                                        type="radio"
+                                        name="max-rating"
+                                        value="3"
+                                        aria-label="maximum rating 3"
+                                    />
+                                    <img class="filter-card__star" src="./images/star_empty.svg" alt="star" />
+                                </label>
+                                <label class="filter-card__star-label">
+                                    <input
+                                        class="filter-card__rating-radio"
+                                        type="radio"
+                                        name="max-rating"
+                                        value="4"
+                                        aria-label="maximum rating 4"
+                                    />
+                                    <img class="filter-card__star" src="./images/star_empty.svg" alt="star" />
+                                </label>
+                                <label class="filter-card__star-label">
+                                    <input
+                                        class="filter-card__rating-radio"
+                                        type="radio"
+                                        name="max-rating"
+                                        value="5"
+                                        aria-label="maximum rating 5"
+                                    />
+                                    <img class="filter-card__star" src="./images/star_empty.svg" alt="star" />
+                                </label>
+                            </div>
+                        </div>
+                    </section>
                     <div></div>
                     <div></div>
                 </div>
