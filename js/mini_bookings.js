@@ -170,14 +170,11 @@ export function openBooking(challenge, trigger = document.activeElement) {
         close.disabled = true;
         status.textContent = "Sending your booking…";
         status.focus();
-
-          // Natan, you should work here down
         try {
             const booking = await createReservation(reservation);
             if (!dialog.open) return;
             status.textContent = "Booking confirmed.";
             fields.send.textContent = "Booking confirmed";
-            // Natan here you can listen for this event to show the step 3 confirmation screen.
             dialog.dispatchEvent(new CustomEvent("booking:confirmed", {
                 bubbles: true, detail: { booking, challenge }
             }));
