@@ -6,6 +6,9 @@ html.booking-scroll-lock body {
 
 /* Booking window */
 .booking-dialog {
+  --booking-muted-text: #46616f;
+  --booking-border-color: #718792;
+  --booking-close-background: #edf4f6;
   width: min(680px, calc(100% - 32px));
   max-width: none;
   max-height: calc(100dvh - 32px);
@@ -41,7 +44,7 @@ html.booking-scroll-lock body {
   border: 0;
   border-radius: 50%;
   color: var(--color-navy);
-  background: #edf4f6;
+  background: var(--booking-close-background);
   font: inherit;
   font-size: 30px;
   cursor: pointer;
@@ -50,7 +53,7 @@ html.booking-scroll-lock body {
 /* Headings */
 .booking-dialog__step {
   margin: 0 48px 12px 0;
-  color: #46616f;
+  color: var(--booking-muted-text);
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
@@ -81,7 +84,7 @@ html.booking-scroll-lock body {
   min-width: 0;
   min-height: 48px;
   padding: 10px 12px;
-  border: 1px solid #718792;
+  border: 1px solid var(--booking-border-color);
   border-radius: 4px;
   color: var(--color-navy);
   background: #fff;
@@ -113,20 +116,6 @@ html.booking-scroll-lock body {
   outline-offset: 3px;
 }
 
-/* Smaller screens */
-@media (max-width: 480px) {
-  .booking-dialog__content {
-    padding: 28px 20px;
-  }
-
-  .booking-dialog__title {
-    font-size: 23px;
-  }
-
-  .booking-button {
-    width: 100%;
-  }
-}
 
 /* Loading messages, available times, and errors */
 .booking-dialog__status {
@@ -147,20 +136,15 @@ html.booking-scroll-lock body {
   border: 0;
 }
 
-.room-card button[data-challenge-id] {
+.room-card__booking-button {
   border: 0;
   font-family: inherit;
   cursor: pointer;
 }
 
-/* Keep inactive booking steps hidden. */
-.booking-dialog [hidden] {
-  display: none !important;
-}
-
 .booking-dialog__selected-date {
   margin: 0 0 24px;
-  color: #46616f;
+  color: var(--booking-muted-text);
   line-height: 1.5;
 }
 
@@ -181,7 +165,7 @@ html.booking-scroll-lock body {
 .booking-dialog__back {
   min-height: 48px;
   padding: 12px 20px;
-  border: 1px solid #718792;
+  border: 1px solid var(--booking-border-color);
   border-radius: 4px;
   color: var(--color-navy);
   background: #fff;
@@ -190,7 +174,16 @@ html.booking-scroll-lock body {
   cursor: pointer;
 }
 
+/* Smaller screens */
 @media (max-width: 480px) {
+  .booking-dialog__content {
+    padding: 28px 20px;
+  }
+
+  .booking-dialog__title {
+    font-size: 23px;
+  }
+
   .booking-dialog__field-row {
     grid-template-columns: 1fr;
     gap: 0;
@@ -200,6 +193,7 @@ html.booking-scroll-lock body {
     flex-direction: column;
   }
 
+  .booking-button,
   .booking-dialog__back {
     width: 100%;
   }
