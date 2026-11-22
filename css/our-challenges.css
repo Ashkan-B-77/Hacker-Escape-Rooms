@@ -133,6 +133,70 @@
     font-size: 18px;
 }
 
+/*--------------------- filter: tags and keyword search ---------------------*/
+
+.filter-card__tags,
+.filter-card__search {
+    text-align: start;
+}
+
+.filter-card__tags {
+    max-width: 320px;
+}
+
+.filter-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.filter-labels__button {
+    padding: 4px 12px;
+    border: 1px solid var(--color-navy);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-navy);
+    font: inherit;
+    font-size: 14px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.filter-labels__button[aria-pressed="true"] {
+    background: var(--color-navy);
+    color: #fff;
+}
+
+.filter-search__input {
+    width: 100%;
+    min-width: 220px;
+    padding: 10px 12px;
+    border: 1px solid var(--color-navy);
+    border-radius: 4px;
+    font: inherit;
+    font-size: 16px;
+}
+
+.filter-labels__button:focus-visible,
+.filter-search__input:focus-visible {
+    outline: 3px solid var(--color-steel-blue);
+    outline-offset: 2px;
+}
+
+.no-matches {
+    margin: 40px 20px 0;
+    text-align: center;
+    font-size: 28px;
+    color: var(--color-navy);
+}
+
+.no-matches:empty {
+    display: none;
+}
+
 /*--------------------- all challenges ---------------------*/
 
 .challenges__list--all {
