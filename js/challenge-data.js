@@ -1,5 +1,8 @@
+import { openBooking } from './mini_bookings.js';
+import { API_BASE } from './api-config.js';
 // Creates a card for a challenge, using the same HTML structure and classes
 // as the cards in index.html, so the existing CSS is applied.
+
 export function createCard(challenge) {
     const item = document.createElement('li');
     item.className = 'challenges__item';
@@ -58,11 +61,13 @@ export function createCard(challenge) {
     text.className = 'room-card__text';
     text.textContent = challenge.description;
 
-    // The button. data-challenge-id lets the booking know which room was clicked.
-    const button = document.createElement('a');
-    button.className = 'button button--primary button--small';
-    button.href = '#';
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'button button--primary button--small room-card__booking-button';
     button.dataset.challengeId = challenge.id;
+    button.setAttribute('aria-haspopup', 'dialog');
+    button.addEventListener('click', () => openBooking(challenge, button));
+
     if (challenge.type === 'online') {
         button.textContent = 'Take challenge online';
     } else {
@@ -79,7 +84,7 @@ let challengeData;
 
 export async function getDataFromApi() {
     if (!challengeData) {
-        const response = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
+        const response = await fetch(`${API_BASE}/challenges`);
         challengeData = await response.json();
     }
     return challengeData;

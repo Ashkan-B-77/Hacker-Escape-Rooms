@@ -1,0 +1,200 @@
+/* Stop the background page from scrolling while booking is open. */
+html.booking-scroll-lock,
+html.booking-scroll-lock body {
+  overflow: hidden;
+}
+
+/* Booking window */
+.booking-dialog {
+  --booking-muted-text: #46616f;
+  --booking-border-color: #718792;
+  --booking-close-background: #edf4f6;
+  width: min(680px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  color: var(--color-navy);
+  background: #fff;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 35%);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Dark layer behind the window */
+.booking-dialog::backdrop {
+  background: rgb(1 24 39 / 76%);
+}
+
+.booking-dialog__content {
+  position: relative;
+  padding: 32px;
+}
+
+/* Close button */
+.booking-dialog__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: var(--color-navy);
+  background: var(--booking-close-background);
+  font: inherit;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Headings */
+.booking-dialog__step {
+  margin: 0 48px 12px 0;
+  color: var(--booking-muted-text);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.booking-dialog__title {
+  margin: 0 40px 28px 0;
+  font-size: 26px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+/* Date field */
+.booking-dialog__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.booking-dialog__field label {
+  font-weight: 700;
+}
+
+.booking-dialog__field input,
+.booking-dialog__field select {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid var(--booking-border-color);
+  border-radius: 4px;
+  color: var(--color-navy);
+  background: #fff;
+  font: inherit;
+  font-size: 16px;
+}
+
+/* Search button */
+.booking-button {
+  min-height: 48px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  background: var(--color-red);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.booking-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Visible keyboard focus */
+.booking-dialog :focus-visible {
+  outline: 3px solid var(--color-steel-blue);
+  outline-offset: 3px;
+}
+
+
+/* Loading messages, available times, and errors */
+.booking-dialog__status {
+  margin: 0 0 20px;
+  color: var(--color-navy);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.booking-dialog__status:empty {
+  display: none;
+}
+
+.booking-dialog fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.room-card__booking-button {
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.booking-dialog__selected-date {
+  margin: 0 0 24px;
+  color: var(--booking-muted-text);
+  line-height: 1.5;
+}
+
+/* Time and participants sit beside each other on wider screens. */
+.booking-dialog__field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Back and submit buttons */
+.booking-dialog__actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.booking-dialog__back {
+  min-height: 48px;
+  padding: 12px 20px;
+  border: 1px solid var(--booking-border-color);
+  border-radius: 4px;
+  color: var(--color-navy);
+  background: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Smaller screens */
+@media (max-width: 480px) {
+  .booking-dialog__content {
+    padding: 28px 20px;
+  }
+
+  .booking-dialog__title {
+    font-size: 23px;
+  }
+
+  .booking-dialog__field-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .booking-dialog__actions {
+    flex-direction: column;
+  }
+
+  .booking-button,
+  .booking-dialog__back {
+    width: 100%;
+  }
+}
