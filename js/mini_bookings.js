@@ -67,7 +67,8 @@ export function openBooking(challenge, trigger = document.activeElement) {
     let bookingDate = "";
     let availableTimes = [];
 
-    dialog.querySelector("#booking-title").textContent = `Book room “${title}”`;
+    const bookingLabel = challenge.type === "online" ? "Book challenge" : "Book room";
+    dialog.querySelector("#booking-title").textContent = `${bookingLabel} “${title}”`;
     date.min = today();
     if (Number.isSafeInteger(minParticipants) && Number.isSafeInteger(maxParticipants) && minParticipants >= 1) {
         for (let count = minParticipants; count <= maxParticipants; count++) {
