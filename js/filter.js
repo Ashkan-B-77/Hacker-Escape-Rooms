@@ -9,7 +9,7 @@ export function getAllLabels(challenges) {
     return [...labels].sort();
 }
 
-export function filterChallenges(challenges, filters) {
+export function filterByLabelsAndText(challenges, filters) {
     const text = filters.text.trim().toLowerCase();
     return challenges.filter(function (challenge) {
         const hasAllLabels = filters.labels.every(function (label) {
