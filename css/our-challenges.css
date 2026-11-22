@@ -14,7 +14,6 @@
     flex-direction: column;
     align-items: center;
     margin: 20px;
-    min-height: 50vh;
     text-align: center;
 }
 
@@ -29,6 +28,11 @@
     width: min(100% - 20px, 900px);
     min-height: 30vh;
     padding: 0 20px 10px;
+}
+
+.filter-card--closed {
+    visibility: hidden;
+    position: absolute;
 }
 
 .filter-card__heading {
@@ -80,8 +84,53 @@
     display: flex;
     justify-content: space-around;
     gap: 40px;
-    align-content: center;
     flex-wrap: wrap;
+}
+
+.filter-card__small-heading {
+    text-align: start;
+    margin-bottom: 15px;
+;
+}
+
+.filter-card__type-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-left: -4px;
+}
+
+.filter-card__checkbox-container, .filter-card__checkbox-container > * {
+    cursor: pointer;
+}
+
+.filter-card__type-rating {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-card__left-stars {
+    display: flex;
+    gap: 5px;
+}
+
+.filter-card__star-label {
+    position: relative;
+}
+
+.filter-card__rating-radio {
+    position: absolute;
+    top: -1px;
+    left: -5px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.filter-card__star-divider {
+    position: relative;
+    top: -3px;
+    font-size: 18px;
 }
 
 /*--------------------- all challenges ---------------------*/
@@ -98,6 +147,7 @@
 }
 
 .all-challenges {
+    padding-top: 20px;
     padding-bottom: 56px;
 }
 
