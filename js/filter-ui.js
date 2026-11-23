@@ -16,7 +16,7 @@ export function createFilterControls(challenges, onChange) {
     searchInput.type = "search";
     searchInput.className = "filter-search__input";
     searchInput.placeholder = "Start typing to filter";
-    searchInput.setAttribute("aria-label", "Search challenges");
+    searchInput.setAttribute("aria-label", "Search for keyword");
 
     searchInput.addEventListener("input", function () {
         update({text: searchInput.value});
