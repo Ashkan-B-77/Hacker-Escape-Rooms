@@ -1,4 +1,8 @@
-import {filterByLabelsAndText, getAllLabels} from "../js/filter.js";
+/**
+ * @jest-environment jsdom
+ */
+
+import {filterByLabelsAndText, getAllLabels, updateStars} from "../js/filter.js";
 
 const challenges = [
     { id: 1, title: "Project: X of Doom", description: "Try your hardest", labels: ["linux", "web"] },
@@ -43,4 +47,53 @@ test("labels match but text does not return an empty array", () => {
 test("text matches the title and is trimmed", () => {
     const result = filterByLabelsAndText(challenges, { labels: [], text: "  cipher " });
     expect(result.map((c) => c.id)).toEqual([2]);
+});
+
+beforeEach(() => {
+    document.body.innerHTML = `
+        <div class="filter-card__left-stars">
+            <img class="filter-card__star" src="./images/star_empty.svg">
+            <img class="filter-card__star" src="./images/star_empty.svg">
+            <img class="filter-card__star" src="./images/star_empty.svg">
+            <img class="filter-card__star" src="./images/star_empty.svg">
+            <img class="filter-card__star" src="./images/star_empty.svg">
+        </div>
+        <div class="filter-card__right-stars">
+            <img class="filter-card__star" src="./images/star_empty.svg">
+            <img class="filter-card__star" src="./images/star_empty.svg">
+            <img class="filter-card__star" src="./images/star_empty.svg">
+            <img class="filter-card__star" src="./images/star_empty.svg">
+            <img class="filter-card__star" src="./images/star_empty.svg">
+        </div>
+    `;
+});
+
+test("marks 3 selected stars of min rating", () => {
+    updateStars(".filter-card__left-stars", 3);
+    
+    const stars = document.querySelectorAll(".filter-card__left-stars .filter-card__star");
+    
+    expect(stars).toHaveLength(5);
+    
+    for (let i = 0; i < stars.length - 2; i++) {
+        expect(stars[i].getAttribute("src")).toBe("./images/star_full.svg");
+    }
+    for (let i = 3; i < stars.length; i++) {
+        expect(stars[i].getAttribute("src")).toBe("./images/star_empty.svg");
+    }
+});
+
+test("marks 2 selected stars of max rating", () => {
+    updateStars(".filter-card__right-stars", 2);
+    
+    const stars = document.querySelectorAll(".filter-card__right-stars .filter-card__star");
+    
+    expect(stars).toHaveLength(5);
+    
+    for (let i = 0; i < stars.length - 3; i++) {
+        expect(stars[i].getAttribute("src")).toBe("./images/star_full.svg");
+    }
+    for (let i = 2; i < stars.length; i++) {
+        expect(stars[i].getAttribute("src")).toBe("./images/star_empty.svg");
+    }
 });
