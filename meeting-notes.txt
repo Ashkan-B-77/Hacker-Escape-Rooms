@@ -51,3 +51,26 @@ som är beroende av Elis arbete. Övriga grupp medlemmar arbetar vidare på
 sina delar av projektet.
 
 Mötet avslutades.
+
+
+Möte 3 2026-11-24 10:00
+Medverkande: Henry Nguyen, Eli Fadi, Viktor Ekström, Ashkan Baharlooe,
+Natan Zemichael Yacob
+Gruppen bestämde att ha ett chattmöte där alla fick redogöra hur man
+ligger till och vad som behöver göras sista veckan.
+
+Mötet öppnades. Viktor meddelade att han har kvar att skapa Jest tester 
+för sina filter delar som han ska arbeta med under veckan, och uppmanade
+Natan att reviewa sin den PR han blivit assignad till samt förslagsvis ange
+Eli som reviewer till sin PR då båda arbetat på samma moment. Natan och Eli
+gav sitt medgivande till detta.
+
+Henry meddelade att han är klar med sin del och kommer ägna tiden åt att
+förbreda för redovisningen.
+
+Eli är klar med sin del och har inget mer att rapportera.
+
+Ashkan förbreder också för redovisningen samt väntar in Natans review för att
+göra eventuella ändringar.
+
+Natan arbetar med reviewn.
