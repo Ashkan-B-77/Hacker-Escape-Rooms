@@ -1,5 +1,7 @@
 // ----------------------------------- Imports -------------------------------
 import { getDataFromApi, createCard } from './challenge-data.js';
+import {filterByLabelsAndText} from './filter.js';
+import {createFilterControls} from './filter-ui.js';
 
 // ----------------------------------- DOM Elements -------------------------------
 const filterSection = document.querySelector(".filter");
@@ -11,6 +13,7 @@ const onsiteCheckbox = document.querySelector("input[value='onsite-challenges']"
 const minRadioRatings = document.querySelectorAll("input[name='min-rating']");
 const maxRadioRatings = document.querySelectorAll("input[name='max-rating']");
 
+let labelAndTextFilters = {labels: [], text: ""};
 // ------------------------------------ listeners ------------------------------------
 
 filterCard.classList.add("filter-card--closed");
@@ -82,18 +85,35 @@ async function filterChallenges() {
 
 function renderChallenges(challenges) {
     const allContainer = document.getElementById('all-challenges');
-
+    const noMatches = document.getElementById('no-matches');
     if (allContainer) {
         allContainer.replaceChildren();
         challenges.forEach((challenge) => {
             allContainer.append(createCard(challenge));
         });
     }
+    noMatches.textContent = challenges.length === 0 ? "No matching challenges" : "";
 }
 
 async function updateChallengeList() {
-    const challenges = await filterChallenges();
+    const byTypeAndRating = await filterChallenges();
+    const challenges = filterByLabelsAndText(byTypeAndRating, labelAndTextFilters);
     renderChallenges(challenges);
 }
 
-updateChallengeList();
+async function setupLabelAndTextFilters() {
+    const data = await getDataFromApi();
+    const {labelsElement, searchElement} = createFilterControls(data.challenges, (filters) => {
+        labelAndTextFilters = filters;
+        updateChallengeList();
+    });
+    document.querySelector("#filter-tags").append(labelsElement);
+    document.querySelector("#filter-search").append(searchElement);
+}
+
+async function init() {
+    await updateChallengeList();
+    await setupLabelAndTextFilters();
+}
+
+init();

@@ -1,0 +1,22 @@
+{
+  "name": "hacker-escape-rooms",
+  "version": "1.0.0",
+  "description": "School Assignment",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ashkan-B-77/Hacker-Escape-Rooms.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Ashkan-B-77/Hacker-Escape-Rooms/issues"
+  },
+  "homepage": "https://github.com/Ashkan-B-77/Hacker-Escape-Rooms#readme",
+  "devDependencies": {
+    "jest": "^30.5.2"
+  }
+}
