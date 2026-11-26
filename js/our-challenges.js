@@ -1,6 +1,7 @@
 // ----------------------------------- Imports -------------------------------
 import { getDataFromApi, createCard } from './challenge-data.js';
-import {filterByLabelsAndText, updateStars, filterChallenges} from './filter.js';
+import {updateStars, filterByTypeAndRating} from './filter-type-rating.js';
+import {filterByLabelsAndText} from './filter-labels-text.js';
 import {createFilterControls} from './filter-ui.js';
 
 // ----------------------------------- DOM Elements -------------------------------
@@ -60,7 +61,7 @@ function renderChallenges(challenges) {
 }
 
 async function updateChallengeList() {
-    const byTypeAndRating = await filterChallenges();
+    const byTypeAndRating = await filterByTypeAndRating();
     const challenges = filterByLabelsAndText(byTypeAndRating, labelAndTextFilters);
     renderChallenges(challenges);
 }
