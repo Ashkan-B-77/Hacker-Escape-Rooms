@@ -1,4 +1,5 @@
 import { getAvailableTimes, createReservation } from "./booking-api.js";
+import "./booking-confirmation.js";
 
 function today() {
     const now = new Date();
