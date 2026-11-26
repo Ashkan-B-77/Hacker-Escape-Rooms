@@ -1,6 +1,7 @@
 // ----------------------------------- Imports -------------------------------
 import { getDataFromApi, createCard } from './challenge-data.js';
-import {filterByLabelsAndText} from './filter.js';
+import {updateStars, filterByTypeAndRating} from './filter-type-rating.js';
+import {filterByLabelsAndText} from './filter-labels-text.js';
 import {createFilterControls} from './filter-ui.js';
 
 // ----------------------------------- DOM Elements -------------------------------
@@ -47,42 +48,6 @@ maxRadioRatings.forEach((radio) => {
 
 // ----------------------------------- functions -------------------------------
 
-function updateStars(groupElements, selectedRating) {
-    const stars = document.querySelectorAll(`${groupElements} .filter-card__star`);
-
-    stars.forEach((star, index) => {
-        star.src = index < selectedRating ? "./images/star_full.svg" : "./images/star_empty.svg";
-    });
-}
-
-async function filterChallenges() {
-    const data = await getDataFromApi();
-    const dataArr = [];
-
-    const selectedMinRating = document.querySelector("input[name='min-rating']:checked");
-    const selectedMaxRating = document.querySelector("input[name='max-rating']:checked");
-
-    const minRating = selectedMinRating ? selectedMinRating.value : 0;
-    const maxRating = selectedMaxRating ? selectedMaxRating.value : 5;
-
-    data.challenges.forEach((challenge) => {
-        const apiRating = Math.round(challenge.rating);
-        const rating = apiRating >= minRating && apiRating <= maxRating;
-
-        if (onlineCheckbox.checked && challenge.type === "online" && rating) {
-            dataArr.push(challenge);
-        }
-        if (onsiteCheckbox.checked && challenge.type === "onsite" && rating) {
-            dataArr.push(challenge);
-        }
-        if (!onlineCheckbox.checked && !onsiteCheckbox.checked && rating) {
-            dataArr.push(challenge);
-        }
-    });
-    
-    return dataArr;
-}
-
 function renderChallenges(challenges) {
     const allContainer = document.getElementById('all-challenges');
     const noMatches = document.getElementById('no-matches');
@@ -96,7 +61,7 @@ function renderChallenges(challenges) {
 }
 
 async function updateChallengeList() {
-    const byTypeAndRating = await filterChallenges();
+    const byTypeAndRating = await filterByTypeAndRating();
     const challenges = filterByLabelsAndText(byTypeAndRating, labelAndTextFilters);
     renderChallenges(challenges);
 }

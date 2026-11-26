@@ -1,4 +1,4 @@
-import {getAllLabels} from "./filter.js";
+import {getAllLabels} from "./filter-labels-text.js";
 
 export function createFilterControls(challenges, onChange) {
     const state = {labels: [], text: ""};

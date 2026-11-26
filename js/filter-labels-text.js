@@ -21,4 +21,3 @@ export function filterByLabelsAndText(challenges, filters) {
         return hasAllLabels && matchesText;
     });
 }
-

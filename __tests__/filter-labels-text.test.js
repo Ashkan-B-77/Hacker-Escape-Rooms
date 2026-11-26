@@ -1,4 +1,4 @@
-import {filterByLabelsAndText, getAllLabels} from "../js/filter.js";
+import {filterByLabelsAndText, getAllLabels} from "../js/filter-labels-text.js";
 
 const challenges = [
     { id: 1, title: "Project: X of Doom", description: "Try your hardest", labels: ["linux", "web"] },
